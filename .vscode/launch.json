@@ -1,0 +1,52 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ChocolateDistribution",
+      "request": "launch",
+      "mainClass": "ChocolateDistribution",
+      "projectName": "Apna College DSA_5c466307"
+    },
+    {
+      "type": "java",
+      "name": "ContainsDuplicates",
+      "request": "launch",
+      "mainClass": "ContainsDuplicates",
+      "projectName": "Apna College DSA_5c466307"
+    },
+    {
+      "type": "java",
+      "name": "LinearSearch",
+      "request": "launch",
+      "mainClass": "LinearSearch",
+      "projectName": "Apna College DSA_5c466307"
+    },
+    {
+      "type": "java",
+      "name": "SumSubArrays",
+      "request": "launch",
+      "mainClass": "SumSubArrays",
+      "projectName": "Apna College DSA_5c466307"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/Projects/Apna College DSA/Arrays",
+      "program": "d:/Projects/Apna College DSA/Arrays/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
