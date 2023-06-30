@@ -1,41 +1,24 @@
 public class Kadanesss {
 
-    public static long kadaness(int arr[]) {
-        long currentSum = 0;
-        long maxSum = Integer.MIN_VALUE;
-
-        for (int i = 0; i < arr.length; i++) {
-            // currentSum=currentSum+arr[i];
-            if (currentSum < 0) {
-                currentSum = arr[i];
-            } else {
-                currentSum += arr[i];
+   public static int kadaness(int[] arr){
+        int currentMax=0;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(currentMax<0){
+                currentMax = arr[i];
             }
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
+            else{
+                currentMax += arr[i];
             }
         }
-        long returnValue = maxSum;
-        // if(maxSum==0){
-        // returnValue=findMaxValue(arr);
-        // }
-        return returnValue;
-    }
-
-    // public static long findMaxValue(int arr[]){
-    // long maxValue = Integer.MIN_VALUE;
-    // long currentMax;
-    // for(int i=0;i<arr.length;i++){
-    // currentMax=arr[i];
-    // if(currentMax>maxValue){
-    // maxValue=currentMax;
-    // }
-    // }
-    // return maxValue;
-    // }
+        if(currentMax>max){
+            max=currentMax;
+        }
+        return currentMax;
+   }
 
     public static void main(String[] args) {
-        int arr[] = { 1, -2, 3 };
+        int arr[] = { -1, 2,3,-2,5};
         System.out.println(kadaness(arr));
     }
 }

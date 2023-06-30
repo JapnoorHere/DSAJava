@@ -1,33 +1,36 @@
 public class TrappingWater {
 
-    public static int trapplingWater(int height[]) {
-        int leftArr[] = new int[height.length];
-        int rightArr[] = new int[height.length];
-        int n = height.length;
-        int waterLevel = 0;
-        int trapplingWater = 0;
-
-        leftArr[0] = height[0];
-        for (int i = 1; i < n; i++) {
-            leftArr[i] = Math.max(leftArr[i - 1], height[i]);
+    public static int trappingWater(int[] arr) {
+        int[] leftArr = new int[arr.length];
+        int[] rightArr = new int[arr.length];
+        int leftMax = Integer.MIN_VALUE;
+        int rightMax = Integer.MIN_VALUE;
+        int trappingWater;
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > leftMax){
+                leftMax=arr[i];
+            }
+            leftArr[i] = leftMax;
         }
 
-        rightArr[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            rightArr[i] = Math.max(rightArr[i + 1], height[i]);
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] > rightMax){
+                rightMax=arr[i];
+            }
+            rightArr[i] = rightMax;
         }
 
-        for (int i = 0; i < n; i++) {
-            waterLevel = Math.min(leftArr[i], rightArr[i]);
-            trapplingWater += waterLevel - height[i];
+        for (int i = 0; i < arr.length; i++) {
+            trappingWater = Math.min(leftArr[i], rightArr[i]) - arr[i];
+            sum += trappingWater;
         }
-
-        return trapplingWater;
+        return sum;
     }
 
     public static void main(String[] args) {
-        int height[] = { 4, 2, 0, 6, 3, 2, 0 };
-        System.out.println("Trappling water is " + trapplingWater(height));
+        int height[] = {10,3,9,7,6,8};
+        System.out.println("Trappling water is " + trappingWater(height));
     }
 
 }
