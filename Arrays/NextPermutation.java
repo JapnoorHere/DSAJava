@@ -1,54 +1,54 @@
 public class NextPermutation {
 
-    public static void nextPermutationa(int arr[]) {
+    public static void nextPermutation(int[] arr) {
+        int ptr = 0;
         int min = Integer.MAX_VALUE;
-        int index = 0;
-        int index2 = 0;
+        int minLoc = -1;
         int n = arr.length;
-        int i;
-        for (i = n - 1; i > 0; i--) {
+
+        for (int i = n - 1; i > 0; i--) {
             if (arr[i] > arr[i - 1]) {
-                index = i - 1;
+                ptr = i - 1;
                 break;
             }
         }
-
-        if (i == 0) {
+        if (ptr == 0) {
+            System.out.println("yes");
             rev(arr, 0, n - 1);
         } else {
+            for (int i = ptr + 1; i < n; i++) {
+                System.out.println();
+                if (arr[i] < min && arr[ptr] < arr[i]) {
+                    minLoc = i;
+                    min = arr[minLoc];
 
-            for (i = n - 1; i > index; i--) {
-                if (arr[i] < min && arr[index] < arr[i]) {
-                    min=arr[i];
-                    index2=i;
-                    System.out.println("min" + min);
                 }
+                int temp = arr[minLoc];
+                arr[minLoc] = arr[ptr];
+                arr[ptr] = temp;
+                rev(arr, ptr + 1, n - 1);
             }
-            System.out.println("inde" + arr[index]);
-            System.out.println("min" + min);
-            int temp = arr[index];
-            arr[index] = arr[index2];
-            arr[index2] = temp;
-            rev(arr, index + 1, n - 1);
         }
+
     }
 
-    public static void rev(int arr[], int start, int end) {
+    public static void rev(int[] arr, int start, int end) {
         while (start < end) {
-            arr[start] = arr[start] ^ arr[end];
-            arr[end] = arr[start] ^ arr[end];
-            arr[start] = arr[start] ^ arr[end];
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
             start++;
             end--;
-        }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
         }
     }
 
     public static void main(String[] args) {
         // int arr[] = {2,1,5,4,3,0,0};
-        int arr[] = {3,6,4,5,2};
-        nextPermutationa(arr);
+        // int arr[] = {2,3,1,8,7,4};
+        // int arr[] = { 3, 6, 4, 5, 2 };
+        int arr[] = { 5, 4, 3, 2, 1 };
+        nextPermutation(arr);
+        for (int i : arr)
+            System.out.println(i);
     }
 }
