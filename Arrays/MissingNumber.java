@@ -1,21 +1,18 @@
 public class MissingNumber {
 
-    public static int missing(int[] arr){
-        int arrSum=0;
-        int wholeSUm=0;
-        for(int i=0;i<=arr.length;i++){
+   public static int missing(int[] arr){
+        int sum=0;
+        int missingSum = 0;
+        for(int i=0;i<=arr.length+1;i++){
+            sum+=i;
             if(i<arr.length)
-            {
-                arrSum+=arr[i];
-            }
-            
-            wholeSUm+=i+1;
+            missingSum+=arr[i];
         }
-        return wholeSUm-arrSum;
-    }
+        return sum-missingSum;
+   }
 
     public static void main(String[] args) {
-        int[] arr={1,4,3};
+        int[] arr={1,4,3,2};
         System.out.println(missing(arr));    
     }   
 }

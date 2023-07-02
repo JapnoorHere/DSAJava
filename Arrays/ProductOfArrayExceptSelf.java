@@ -1,26 +1,28 @@
 public class ProductOfArrayExceptSelf {
 
-    public static void productOfArrayExceptSelf(int arr[]){
-        int product=1;
-        int[] res= new int[arr.length];
-        for(int i=0;i<res.length;i++){
-            res[i]=product;
-            product*=arr[i];
+   
+    public static void productOfArrayExceptSelf(int[] arr){
+        int pro=1;
+        int productArr[] = new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            productArr[i]=pro;
+            pro*=arr[i];
         }
-        product=1;
-        for(int i=res.length-1;i>=0;i--){
-            res[i]*=product;
-            product*=arr[i];
+        pro=1;
+        for(int i=arr.length-1;i>=0;i--){
+            productArr[i]*=pro;
+            pro*=arr[i];
         }
-        
-        for(int i=0;i<res.length;i++){
-            System.out.println(res[i]);
-        }
-        
+        for(int i : productArr)
+        System.out.println(i);
     }
 
+
     public static void main(String[] args) {
-        int[] arr={1,0};
+        int[] arr={2,2,3,4};
+        //24,12,8,6
+        //1,1,2,6
+        //24,12,4,1
         productOfArrayExceptSelf(arr);
     }
 }
