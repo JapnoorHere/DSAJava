@@ -24,7 +24,8 @@ public class MaximumProductSubarray {
     }
 
     public static void main(String[] args) {
-        int arr[]={2, 3, 4, 5, -1, 0};
+        // int arr[]={2, 3, 4, 5, -1, 0};
+        int arr[]={2, 3, 4, 5};
         System.out.println(product(arr));
     }
 }
