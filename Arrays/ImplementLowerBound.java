@@ -39,8 +39,8 @@ public class ImplementLowerBound {
     }
 
 public static void main(String[] args) {
-    int[] arr={1,2,3,5,8,10,11};
-    System.out.println(upperBound(arr,5));
+    int[] arr={1,2,3,4,6,7,8};
+    System.out.println(lowerBound(arr,5));
 }
     
 }
