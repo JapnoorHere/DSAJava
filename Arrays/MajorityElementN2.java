@@ -1,4 +1,4 @@
-public class MajorityElement {
+public class MajorityElementN2 {
 
     public static int findMajority(int[] arr){
         int el=0;
@@ -28,7 +28,7 @@ public class MajorityElement {
     }
 
     public static void main(String[] args) {
-        int[] arr={1,2,3};
+        int[] arr={1,1,1,1,2,2,2,2,2,2,2,23};
         System.out.println(findMajority(arr));
     }
 }

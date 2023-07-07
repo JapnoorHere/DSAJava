@@ -2,8 +2,9 @@ import java.util.HashMap;
 
 public class LongestSubArrayWithSumKPositivesNegatives {
 
-    public static int findlargest(int[] arr,int k){
+    public static int findlargest(int[] arr){
         int len=Integer.MIN_VALUE;
+        int k=0;
         int currentSum=0;
         int end=-1;
         int start=-1;
@@ -30,8 +31,8 @@ public class LongestSubArrayWithSumKPositivesNegatives {
 
 
     public static void main(String[] args) {
-        int[] arr={-13,0,6,15,16,2,15,-12,17,-16,0,-3,19,-3,2,-9,-6};
-        System.out.println(findlargest(arr,15));
+        int[] arr={-2,34,98,-34,2,-98};
+        System.out.println(findlargest(arr));
     }
     
 }
