@@ -129,6 +129,32 @@ class LL {
         prev.next = temp.next;
         size--;
     }
+    
+    
+    public void removeNnodeFromEnd(int index){
+        if(size == 0){
+            System.out.println("LL is empty");
+            return;
+        }
+        else if(size == 1){
+            String value = head.data;
+            head = tail =null;
+            size--;
+            return;
+     }
+        int n = size-index;    
+        Node prev = head;
+        Node temp = head;
+        int count = 0;
+        while(count<n){
+            count++;
+            prev=prev.next;
+            temp = prev.next;
+        }
+        String value = temp.data;
+        prev.next = temp.next;
+        size--;
+    }
 
     public int search(String target){
         int count=-1;
@@ -144,6 +170,29 @@ class LL {
             temp=temp.next;
         }
         return -1;
+    }
+
+    public void reverse(){
+        Node curr = tail = head;
+        Node prev = null;
+        while(curr!=null){
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;            
+        } 
+        head = prev;
+    }
+
+    public Node findMid(){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 
     public int size() {
@@ -186,6 +235,12 @@ class LL {
             System.out.println("Element found at " + pos);
         }
 
+        // list.reverse();
+        // list.print();
+        
+        // list.removeNnodeFromEnd(0);
+        // list.print();
+
         // list.removeFirst();
         // list.print();
         
@@ -202,5 +257,7 @@ class LL {
         // list.add(10,"jod");
         // list.print();
         // System.out.println(list.size());   
+        System.out.println(list.findMid().data);
+    
     }
 }

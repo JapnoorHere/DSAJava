@@ -1,10 +1,7 @@
-        }
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
-            
-        }
-        System.out.print("null");
-        System.out.println();
-    }
+list.print();
+        // list.addLast("!");
+        // list.print();
+        // list.add(2, "yo");
+        // list.print();
+        // list.add(0, "yo");
+        // list.print();
