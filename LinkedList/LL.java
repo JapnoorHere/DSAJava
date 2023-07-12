@@ -3,7 +3,7 @@ class LL {
     public static Node tail;
     public static int size;
 
-    class Node {
+    static class Node {
         String data;
         Node next;
 
@@ -195,6 +195,48 @@ class LL {
         return slow;
     }
 
+    public boolean checkPalindrome(){
+        if(head == null && head.next==null){
+            return true;
+        }
+        Node midNode = findMid();
+        Node curr = midNode;
+        Node prev = null;
+        Node next ;
+        while(curr != null){
+            next = curr.next;
+            prev = curr;
+            curr = next;
+        }
+
+        Node right = prev;
+        Node left = head;
+
+        while(right!=null){
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
+
+    public static boolean detectLoop(){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
     public int size() {
         return size;
     }
@@ -216,24 +258,24 @@ class LL {
 
     public static void main(String[] args) {
         LL list = new LL();
-        list.addFirst("World");
-        System.out.println(list.size());
-        list.addFirst("Hello");
-        list.print();
-        list.addLast("!");
-        list.print();
-        list.add(2, "yo");
-        list.print();
-        list.add(0, "yo");
-        list.print();
+        // list.addFirst("World");
+        // System.out.println(list.size());
+        // list.addFirst("Hello");
+        // list.print();
+        // list.addLast("!");
+        // list.print();
+        // list.add(2, "yo");
+        // list.print();
+        // list.add(0, "yo");
+        // list.print();
 
-        int pos = list.search("!");
-        if(pos == -1){
-            System.out.println("Element not found");
-        }
-        else{
-            System.out.println("Element found at " + pos);
-        }
+        // int pos = list.search("!");
+        // if(pos == -1){
+        //     System.out.println("Element not found");
+        // }
+        // else{
+        //     System.out.println("Element found at " + pos);
+        // }
 
         // list.reverse();
         // list.print();
@@ -257,7 +299,13 @@ class LL {
         // list.add(10,"jod");
         // list.print();
         // System.out.println(list.size());   
-        System.out.println(list.findMid().data);
+        // System.out.println(list.findMid().data);
+
+        head = new Node("dmnfjkew");
+        head.next = new Node("2");
+        head.next.next = new Node("3");
+        // head.next.next.next = head;
+        System.out.println(detectLoop());
     
     }
 }
