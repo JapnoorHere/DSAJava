@@ -1,8 +1,11 @@
 class LL {
+
     public static Node head;
     public static Node tail;
     public static int size;
 
+
+    //Node class
     static class Node {
         String data;
         Node next;
@@ -13,6 +16,8 @@ class LL {
         }
     }
 
+
+    //add element at first pos
     public void addFirst(String data) {
         Node newNode = new Node(data);
         size++;
@@ -25,6 +30,8 @@ class LL {
         head = newNode;
     }
 
+
+    //add element at last pos
     public void addLast(String data) {
         Node newNode = new Node(data);
         size++;
@@ -36,6 +43,8 @@ class LL {
         tail = newNode;
     }
 
+
+    //add element at given index
     public void add(int index, String data) {
         if (index == 0) {
             addFirst(data);
@@ -61,6 +70,8 @@ class LL {
         temp.next = newNode;
     }
 
+
+    //removes element from first pos
     public void removeFirst() {
         if (size == 0) {
             System.out.println("LL is empty");
@@ -76,6 +87,7 @@ class LL {
         size--;
     }
 
+    //remove element form last pos
     public void removeLast() {
         if (size == 0) {
             System.out.println("LL is empty");
@@ -98,6 +110,7 @@ class LL {
         size--;
     }
 
+    //remove element from given index
     public void remove(int index){
         if(index == 0){
             removeFirst();
@@ -130,7 +143,7 @@ class LL {
         size--;
     }
     
-    
+    //remove nth node from end 
     public void removeNnodeFromEnd(int index){
         if(size == 0){
             System.out.println("LL is empty");
@@ -156,6 +169,7 @@ class LL {
         size--;
     }
 
+    //search for target lement -> Linear search
     public int search(String target){
         int count=-1;
         if(head == null){
@@ -172,6 +186,8 @@ class LL {
         return -1;
     }
 
+
+    //reverse ll by pointing every element to its previous -> uses 3 elements or varaibles
     public void reverse(){
         Node curr = tail = head;
         Node prev = null;
@@ -184,6 +200,7 @@ class LL {
         head = prev;
     }
 
+    // find middle using slow fast technique or Floyd's Cycle Finding Algo
     public Node findMid(){
         Node slow = head;
         Node fast = head;
@@ -195,6 +212,7 @@ class LL {
         return slow;
     }
 
+    //check is ll is palinrome or not uing floyd's cycle finding algo or slow fast technique
     public boolean checkPalindrome(){
         if(head == null && head.next==null){
             return true;
@@ -222,10 +240,12 @@ class LL {
         return true;
     }
 
+
+    // detetcts if ll containst loop somewhere at middle element or not other than head
     public static boolean detectLoop(){
         Node slow = head;
         Node fast = head;
-
+        
         while(fast!=null && fast.next!=null){
             slow = slow.next;
             fast = fast.next.next;
@@ -237,10 +257,40 @@ class LL {
         return false;
     }
 
+
+    // delete the loops if there
+    public static void deleteLoop(){
+        Node slow = head;
+        Node fast = head;
+        boolean isCycle = false;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                isCycle = true;
+                break;
+            }
+        } 
+        if(isCycle){
+        slow = head;
+        Node prev = null;
+        while(slow != fast){
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+
+        prev.next = null;
+    }
+            return;
+    }
+    
+    //return size of ll
     public int size() {
         return size;
     }
 
+    //print the ll
     public void print() {
         if (head == null) {
             System.out.println("Linked List is null");
@@ -304,8 +354,8 @@ class LL {
         head = new Node("dmnfjkew");
         head.next = new Node("2");
         head.next.next = new Node("3");
-        // head.next.next.next = head;
+        head.next.next.next = head.next;
+        // deleteLoop();
         System.out.println(detectLoop());
-    
     }
 }

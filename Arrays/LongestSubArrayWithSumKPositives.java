@@ -1,4 +1,4 @@
-public class LongestSubArrayWithSumK {
+public class LongestSubArrayWithSumKPositives {
 
     public  static int findSubArray(int[] arr,int k){
         int len=0;
