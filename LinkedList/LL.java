@@ -284,6 +284,27 @@ class LL {
     }
             return;
     }
+
+    public static void swapXandY(){
+        Node temp = head;
+        int count =0;
+        int x=2;
+        int y=4;
+        Node save1 = null;
+        Node save2 = null;
+
+        while(temp != null){
+            temp = temp.next;
+            count++;
+            if(count == x-1){
+                save1 = temp.next;
+                temp.next=null;
+            }
+            if(count == y-1){
+
+            }
+        }
+    }
     
     //return size of ll
     public int size() {

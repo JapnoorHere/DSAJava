@@ -1,24 +1,20 @@
-public class Kadanesss {
+public class Kadanesss{
 
-   public static int kadaness(int[] arr){
-        int currentMax=0;
-        int max=Integer.MIN_VALUE;
-        for(int i=0;i<arr.length;i++){
-            if(currentMax<0){
-                currentMax = arr[i];
-            }
-            else{
-                currentMax += arr[i];
+    public static int kadane(int[] arr){
+        int sum=0;
+
+        for(int i = 0;i<arr.length;i++){
+            sum+=arr[i];
+            if(sum<0){
+                sum=0;
             }
         }
-        if(currentMax>max){
-            max=currentMax;
-        }
-        return currentMax;
-   }
+        
+        return sum;
+    }
 
     public static void main(String[] args) {
-        int arr[] = { -1, 2,3,-2,5};
-        System.out.println(kadaness(arr));
+        int[] arr = {1,2,-4,-2,5};
+        System.out.println(kadane(arr));
     }
 }
