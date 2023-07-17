@@ -1,9 +1,16 @@
-ArrayList<Integer> a = new ArrayList<>();
-        int max=Integer.MIN_VALUE;
-        for (int i = arr.length-1; i >=0; i--) {
-            if(arr[i]>max){
-                a.add(arr[i]);
-                max=arr[i];
+  int maxProfit = 0;
+        int profit = 0;
+        int buyingPrice = 0;
+        int sellingPrice = 0;
+        
+        for (int i = 0; i < arr.length-1; i++) {
+            buyingPrice = arr[i];
+            if (arr[i+1] > buyingPrice) {
+                sellingPrice = arr[i+1];
+            }
+            profit = sellingPrice - buyingPrice;
+            if (profit > maxProfit) {
+                maxProfit = profit;
             }
         }
-        Collections.reverse(a);
+        return maxProfit;

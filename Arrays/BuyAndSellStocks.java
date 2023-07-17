@@ -7,20 +7,21 @@ class BuyAndSellStocks {
         int sellingPrice = 0;
         
         for (int i = 0; i < arr.length-1; i++) {
-            buyingPrice = arr[i];
-            if (arr[i+1] > buyingPrice) {
-                sellingPrice = arr[i+1];
+            if(buyingPrice<arr[i]){
+                sellingPrice = arr[i];
+                profit = sellingPrice - buyingPrice;
+                maxProfit = Math.max(maxProfit, profit);
             }
-            profit = sellingPrice - buyingPrice;
-            if (profit > maxProfit) {
-                maxProfit = profit;
+            else{
+                buyingPrice = arr[i];
             }
+        
         }
         return maxProfit;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 6,8,3,5,11 };
+        int arr[] = { 6,8,3,5,11};
         System.out.println(buyAndSellStocks(arr));
     }
 }
