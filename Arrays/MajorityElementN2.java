@@ -1,34 +1,35 @@
 public class MajorityElementN2 {
 
     public static int findMajority(int[] arr){
-        int el=0;
-        int count=0;
+        int data = Integer.MIN_VALUE;
+        int count =0 ;
         for(int i=0;i<arr.length;i++){
-            if(count==0){
-                el=arr[i];
-                count=1;
+            if(data == arr[i]){
+                count++;
             }
-            else if(arr[i]==el){
+            else if(count == 0){
+                data = arr[i];
                 count++;
             }
             else{
                 count--;
             }
         }
-        int count1=0;
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]==el)
-            count1++;
-        }
-        if(count1>arr.length/2)
-            return el;
 
-        el=-1;
-        return el;
+        count = 0;
+        for(int i=0;i<arr.length;i++){
+            if(data == arr[i]){
+                count++;
+            }
+        }
+        if(count > arr.length/2)
+        return data;
+
+        return -1;
     }
 
     public static void main(String[] args) {
-        int[] arr={1,1,1,1,2,2,2,2,2,2,2,23};
+        int[] arr={1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,2,2,1,1,1,1,1,1,1,1};
         System.out.println(findMajority(arr));
     }
 }

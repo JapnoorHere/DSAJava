@@ -1,45 +1,45 @@
 import java.util.ArrayList;
 
 public class UnionArray {
-    
-    public static void union(int arr[],int brr[]){
-        ArrayList <Integer> a=new ArrayList<>();
-        int one=0;    
-        int second=0;
-        while(one<arr.length && second<brr.length){
-            if(arr[one]<=brr[second]){
-                if(a.size()==0 || a.get(a.size()-1)!=arr[one]){
+
+    public static void union(int arr[], int brr[]) {
+        ArrayList<Integer> a = new ArrayList<>();
+        int one = 0;
+        int two = 0;
+
+        while (one < arr.length && two < brr.length) {
+            if (arr[one] <= brr[two]) {
+                if (a.size() == 0 || a.get(a.size() - 1) != arr[one]) {
                     a.add(arr[one]);
                 }
                 one++;
-            }
-            
-            else{
-                if(a.size()==0 || a.get(a.size()-1)!=brr[second]){
-                    a.add(brr[second]);
+            } else if (brr[two] <= arr[one]) {
+                if (a.size() == 0 || a.get(a.size() - 1) != brr[two]) {
+                    a.add(brr[two]);
                 }
-                second++;
+                two++;
             }
-        }   
-        while(one<arr.length){
-            if(a.get(a.size()-1)!=arr[one]){
+        }
+
+        while (one < arr.length) {
+            if (a.size() == 0 || a.get(a.size() - 1) != arr[one]) {
                 a.add(arr[one]);
             }
             one++;
-        } 
-        
-        while(second<brr.length){
-            if(a.get(a.size()-1)!=brr[second]){
-                a.add(brr[second]);
+        }
+
+        while (two < brr.length) {
+            if (a.size() == 0 || a.get(a.size() - 1) != brr[two]) {
+                a.add(brr[two]);
             }
-            second++;
-        } 
-        for(int i: a)
-        System.out.println(i);
-    }    
+            two++;
+        }
+        System.out.println(a);
+    }
+
     public static void main(String[] args) {
-        int[] arr={1,2,3,4,5};
-        int[] brr={2,2,3,5,6};
-        union(arr,brr);
-    }    
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int[] brr = { 2, 2, 3, 5, 6 };
+        union(arr, brr);
+    }
 }

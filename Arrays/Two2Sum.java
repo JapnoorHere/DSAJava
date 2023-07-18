@@ -27,24 +27,33 @@ public class Two2Sum {
         // return new int[] {0};
     }
 
-    public static int[] findIndexMap(int[] arr,int data){
+    public static void findIndexMap(int[] arr,int data){
         HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i =0;i<arr.length;i++)
-        map.put(arr[i],i);
+        int idx1=-1;
+        int idx2=-1;
+        
         for(int i=0;i<arr.length;i++){
-            int res=data-arr[i];
-            if(map.containsKey(res)){
-                return new int[] {map.get(res),map.get(arr[i])};
+            map.put(arr[i],i);
+        }
+
+        for(int i =0;i<arr.length;i++){
+            int sub = data-arr[i];
+            if(map.containsKey(sub) && map.get(sub)!=i){
+                idx1=i;
+                idx2=map.get(sub);
+                break;
             }
         }
-        return new int[] {0};
+        System.out.println(idx1);
+        System.out.println(idx2);
+
     }
 
     public static void main(String[] args) {
-        int[] arr={2,7,11,15};
+        int[] arr={2,7,14,15,7};
         ArrayList <Integer> a= new ArrayList<>();
         // findIndexLoop(arr, 22) ;       
-        findIndexMap(arr, 22) ;       
+        findIndexMap(arr, 14) ;       
     }
     
 }
