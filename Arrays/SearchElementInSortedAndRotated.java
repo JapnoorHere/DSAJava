@@ -7,10 +7,8 @@ public class SearchElementInSortedAndRotated {
         while(lb<=ub){
         mid = lb + (ub - lb)/2; 
             if(data==a[mid]){
-                System.out.println(a[mid]);
                 return mid;
             }
-            System.out.println(a[mid]);
             if(a[lb]<=a[mid]){
                 if(data>=a[lb] && data<a[mid]){
                     ub=mid-1;
@@ -32,8 +30,8 @@ public class SearchElementInSortedAndRotated {
     }
 
     public static void main(String[] args) {
-        int arr[]={1,0,1,1,1};
+        int arr[]={3,0,1,2,2};
         // int arr[]={5,6,7,8,9,10,1,2,3};
-        System.out.println(searchElementInSortedAndRotated(arr,0));
+        System.out.println(searchElementInSortedAndRotated(arr,3));
     }    
 }
