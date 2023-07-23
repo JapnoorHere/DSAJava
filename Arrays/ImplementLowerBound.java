@@ -7,12 +7,8 @@ public class ImplementLowerBound {
         int mid = 0;
         while(lb<=ub){
             mid=(lb+ub)/2;
-            if(arr[mid]>=data){
-                res=mid;
-                ub=mid-1;
-            }
-            else{
-                lb=mid+1;
+            if(arr[mid] >= data){
+                int loc = mid;
             }
         }
         
