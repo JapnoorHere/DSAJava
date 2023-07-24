@@ -3,7 +3,7 @@ public class FindNumberOfTimesArrayRotated {
     
 
     public static void main(String[] args) {
-        int[] arr={6,7,8,9,10,3,4,5};
+        int[] arr={3,4,5,1,2};
         System.out.println(findRotation(arr));
 
     }
@@ -23,8 +23,10 @@ public class FindNumberOfTimesArrayRotated {
                 lb=mid+1;
             }
             else{
+            if(arr[mid]<min){
                 min=arr[mid];
                 loc=mid;
+            }
                 ub=mid-1;
             }
         }

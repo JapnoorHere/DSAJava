@@ -6,22 +6,19 @@ public class LongestSubArrayWithSumKPositivesNegatives {
         int len=Integer.MIN_VALUE;
         int k=0;
         int currentSum=0;
-        int end=-1;
         int start=-1;
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i=0;i<arr.length;i++){
             currentSum+=arr[i];
             if(currentSum == k){
-                end = i;
-                len = Math.max(len,end+1);
+                len = Math.max(len,i+1);
             }
-            else if(map.containsKey(currentSum-k)){
+            else if(map.get(currentSum-k) !=map.size()){
                 start = map.get(currentSum-k);
-                end = i;
-                len=Math.max(len, end-start);
+                len=Math.max(len, i-start);
             }
-            if(!map.containsKey(currentSum))
-            map.put(currentSum, i);
+            if(map.get(currentSum) == map.size())
+                map.put(currentSum, i);
         }
         if(len==Integer.MIN_VALUE){
             return 0;

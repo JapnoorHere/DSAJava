@@ -7,7 +7,6 @@ public class FindElementThatAppearsOnce {
 
         return xor;
     }
-
     public static void main(String[] args) {
         int[] arr={1,1,2,5,5};
         System.out.println(search(arr));

@@ -10,7 +10,7 @@ public class FloorAndCeil {
         int mid=0;
         while(lb<=ub){
             mid=(lb+ub)/2;
-            if(arr[mid]>=data){
+            if(arr[mid]>=data){                                             
                 floor=mid-1;
                 ceil=mid;
                 ub=mid-1;
@@ -23,8 +23,8 @@ public class FloorAndCeil {
     }
 
     public static void main(String[] args) {
-        int[] arr={5,6,8,9};
-        int[] res=floorAndCeil(arr, 7);
+        int[] arr={5,6,8,8,9};
+        int[] res=floorAndCeil(arr, 4);
         for(int i : res)
         System.out.println(i);
     }
