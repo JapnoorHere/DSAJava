@@ -1,11 +1,11 @@
 public class LeftRotateArrayByD {
     
    public static void rotate(int[] arr,int d){
-
-        rev(arr, 0, d);
+        d%=arr.length;
+        rev(arr, 0, d-1);
      for(int i:arr)
         System.out.println("firs" + i);
-        rev(arr, d+1, arr.length-1);
+        rev(arr, d, arr.length-1);
      for(int i:arr)
         System.out.println("sec" + i);
         rev(arr, 0, arr.length-1);
@@ -15,7 +15,7 @@ public class LeftRotateArrayByD {
    } 
 
    public static void rev(int[] arr,int start,int end){
-        while(start<=end){
+        while(start<end){
             int temp = arr[start];
             arr[start] = arr[end];
             arr[end] = temp;
@@ -25,7 +25,7 @@ public class LeftRotateArrayByD {
    }
 
     public static void main(String[] args) {
-        int[] arr={5,1,4,9,8};
-        rotate(arr,4);
+        int[] arr={8,2,9,1,4,3};
+        rotate(arr,13);
     }
 }
